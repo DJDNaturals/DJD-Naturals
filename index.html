@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJD Naturals - Soluciones Naturales para tu Bienestar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%);
+            color: #5A4B7A;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #5A4B7A;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: #5A4B7A;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #5A4B7A;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%);
+            color: #5A4B7A;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(90,75,122,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(-100px); }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #8B5A9F, #A066BB);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 0.5rem 0.5rem 0;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .whatsapp-button {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 0.5rem 0.5rem 0;
+        }
+        
+        .whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .whatsapp-button::before {
+            content: '📱 ';
+            margin-right: 0.5rem;
+        }
+        
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        .floating-whatsapp::before {
+            content: '💬';
+            font-size: 1.5rem;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6); }
+            100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+        }
+        
+        /* Passiflora decorations */
+        .passiflora {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.4;
+            animation: floatRotate 15s infinite ease-in-out;
+        }
+        
+        .passiflora-1 {
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+        
+        .passiflora-2 {
+            top: 50%;
+            right: 10%;
+            animation-delay: -7s;
+        }
+        
+        .passiflora-3 {
+            top: 70%;
+            left: 15%;
+            animation-delay: -3s;
+        }
+        
+        .passiflora-4 {
+            top: 25%;
+            right: 25%;
+            animation-delay: -10s;
+        }
+        
+        @keyframes floatRotate {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0.4;
+            }
+            25% { 
+                transform: translateY(-20px) rotate(90deg) scale(1.1);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: translateY(10px) rotate(180deg) scale(0.9);
+                opacity: 0.3;
+            }
+            75% { 
+                transform: translateY(-15px) rotate(270deg) scale(1.05);
+                opacity: 0.5;
+            }
+        }
+        
+        /* Sections */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-section {
+            background-color: #f8f7fc;
+            position: relative;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(232,225,245,0.6) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(232,225,245,0.6) 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #5A4B7A;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #8B5A9F, #A066BB);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Products Section */
+        .products-section {
+            background: linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%);
+            position: relative;
+        }
+        
+        .products-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(90,75,122,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #E8E1F5;
+        }
+        
+        .product-card::before {
+            content: '🐻';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 4rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(90,75,122,0.2);
+            border-color: #8B5A9F;
+        }
+        
+        .product-title {
+            font-size: 1.5rem;
+            color: #5A4B7A;
+            margin-bottom: 1rem;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #8B5A9F;
+            margin-bottom: 1rem;
+        }
+        
+        .product-features {
+            background: #E8E1F5;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        .product-whatsapp {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .product-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .product-whatsapp::before {
+            content: '💬 ';
+            margin-right: 0.3rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #5A4B7A 0%, #8B5A9F 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #5A4B7A;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        /* Floating Passiflora Animations */
+        .floating-passiflora {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-passiflora-1 {
+            top: 20%;
+            left: 5%;
+            animation: drift1 20s infinite ease-in-out;
+        }
+        
+        .floating-passiflora-2 {
+            top: 60%;
+            right: 5%;
+            animation: drift2 25s infinite ease-in-out;
+        }
+        
+        .floating-passiflora-3 {
+            bottom: 30%;
+            left: 10%;
+            animation: drift3 18s infinite ease-in-out;
+        }
+        
+        @keyframes drift1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(30px, -40px) rotate(90deg); }
+            50% { transform: translate(-20px, -20px) rotate(180deg); }
+            75% { transform: translate(40px, 20px) rotate(270deg); }
+        }
+        
+        @keyframes drift2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-50px, 30px) rotate(120deg); }
+            66% { transform: translate(20px, -40px) rotate(240deg); }
+        }
+        
+        @keyframes drift3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(60px, -30px) rotate(180deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .passiflora {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-whatsapp {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .floating-whatsapp::before {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* SVG Passiflora */
+        .passiflora-svg {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">DJD Naturals</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <!-- Animated Passiflora Flowers -->
+        <div class="passiflora passiflora-1">
+            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <!-- Outer petals -->
+                    <g fill="rgba(255,255,255,0.8)" stroke="rgba(139,90,159,0.6)" stroke-width="0.5">
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(36 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(108 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(180 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(252 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(324 50 50)"/>
+                    </g>
+                    
+                    <!-- Corona (filaments) -->
+                    <g stroke="rgba(139,90,159,0.7)" stroke-width="0.3" fill="none">
+                        <circle cx="50" cy="50" r="18"/>
+                        <path d="M32,50 L68,50 M50,32 L50,68 M37,37 L63,63 M63,37 L37,63"/>
+                        <path d="M35,50 L65,50 M50,35 L50,65 M39,39 L61,61 M61,39 L39,61"/>
+                    </g>
+                    
+                    <!-- Center structure -->
+                    <circle cx="50" cy="50" r="12" fill="rgba(212,196,232,0.6)" stroke="rgba(139,90,159,0.8)" stroke-width="0.5"/>
+                    <circle cx="50" cy="50" r="6" fill="rgba(160,102,187,0.4)"/>
+                    
+                    <!-- Stamens -->
+                    <g fill="rgba(139,90,159,0.9)">
+                        <circle cx="45" cy="45" r="1.5"/>
+                        <circle cx="55" cy="45" r="1.5"/>
+                        <circle cx="55" cy="55" r="1.5"/>
+                        <circle cx="45" cy="55" r="1.5"/>
+                        <circle cx="50" cy="50" r="2"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="passiflora passiflora-2">
+            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <!-- Outer petals -->
+                    <g fill="rgba(255,255,255,0.7)" stroke="rgba(139,90,159,0.5)" stroke-width="0.5">
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(36 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(108 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(180 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(252 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(324 50 50)"/>
+                    </g>
+                    
+                    <!-- Corona -->
+                    <g stroke="rgba(139,90,159,0.6)" stroke-width="0.3" fill="none">
+                        <circle cx="50" cy="50" r="18"/>
+                        <path d="M32,50 L68,50 M50,32 L50,68 M37,37 L63,63 M63,37 L37,63"/>
+                    </g>
+                    
+                    <!-- Center -->
+                    <circle cx="50" cy="50" r="12" fill="rgba(212,196,232,0.5)" stroke="rgba(139,90,159,0.7)" stroke-width="0.5"/>
+                    <circle cx="50" cy="50" r="6" fill="rgba(160,102,187,0.3)"/>
+                    
+                    <!-- Stamens -->
+                    <g fill="rgba(139,90,159,0.8)">
+                        <circle cx="45" cy="45" r="1.5"/>
+                        <circle cx="55" cy="45" r="1.5"/>
+                        <circle cx="55" cy="55" r="1.5"/>
+                        <circle cx="45" cy="55" r="1.5"/>
+                        <circle cx="50" cy="50" r="2"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="passiflora passiflora-3">
+            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <!-- Outer petals -->
+                    <g fill="rgba(255,255,255,0.6)" stroke="rgba(139,90,159,0.4)" stroke-width="0.5">
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(36 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(108 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(180 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(252 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(324 50 50)"/>
+                    </g>
+                    
+                    <!-- Corona -->
+                    <g stroke="rgba(139,90,159,0.5)" stroke-width="0.3" fill="none">
+                        <circle cx="50" cy="50" r="18"/>
+                        <path d="M32,50 L68,50 M50,32 L50,68"/>
+                    </g>
+                    
+                    <!-- Center -->
+                    <circle cx="50" cy="50" r="12" fill="rgba(212,196,232,0.4)"/>
+                    <circle cx="50" cy="50" r="6" fill="rgba(160,102,187,0.2)"/>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="passiflora passiflora-4">
+            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <!-- Outer petals -->
+                    <g fill="rgba(255,255,255,0.5)" stroke="rgba(139,90,159,0.3)" stroke-width="0.5">
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
+                    </g>
+                    
+                    <!-- Center -->
+                    <circle cx="50" cy="50" r="10" fill="rgba(212,196,232,0.3)"/>
+                    <circle cx="50" cy="50" r="5" fill="rgba(160,102,187,0.2)"/>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Soluciones Naturales para tu Bienestar</h1>
+            <p>Descubre una alternativa natural, accesible y efectiva para combatir la ansiedad, el estrés y el insomnio. Mejora tu calidad de vida con DJD Naturals.</p>
+            <div>
+                <a href="#productos" class="cta-button">Conoce Nuestros Productos</a>
+                <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20DJD%20Naturals" class="whatsapp-button" target="_blank">Contactar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="section about-section">
+        <h2 class="section-title">¿Quiénes Somos?</h2>
+        <div class="about-content">
+            <p>DJD Naturals surge a partir de la necesidad de ofrecer una solución natural, que sea accesible, económica y efectiva frente a padecimientos cada vez más comunes en la sociedad actual, como lo son la ansiedad, el estrés y el insomnio.</p>
+            <br>
+            <p>Estas condiciones afectan la calidad de vida de muchas personas, interfiriendo con su bienestar físico, emocional y social. Por eso, nos dedicamos a brindar alternativas naturales que ayuden a recuperar el equilibrio y la tranquilidad en tu día a día.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="section products-section">
+        <!-- Floating Passiflora Animations -->
+        <div class="floating-passiflora floating-passiflora-1">
+            <svg width="60" height="60" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.3">
+                    <g fill="rgba(255,255,255,0.8)" stroke="rgba(139,90,159,0.6)" stroke-width="0.8">
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(45 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(90 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(135 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(180 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(225 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(270 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(315 50 50)"/>
+                    </g>
+                    <g stroke="rgba(139,90,159,0.5)" stroke-width="0.5" fill="none">
+                        <circle cx="50" cy="50" r="15"/>
+                        <path d="M35,50 L65,50 M50,35 L50,65"/>
+                    </g>
+                    <circle cx="50" cy="50" r="8" fill="rgba(212,196,232,0.4)"/>
+                    <circle cx="50" cy="50" r="4" fill="rgba(160,102,187,0.3)"/>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="floating-passiflora floating-passiflora-2">
+            <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.25">
+                    <g fill="rgba(255,255,255,0.7)" stroke="rgba(139,90,159,0.5)" stroke-width="0.8">
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(36 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(72 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(108 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(144 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(180 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(216 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(252 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(288 50 50)"/>
+                        <ellipse cx="50" cy="25" rx="3" ry="12" transform="rotate(324 50 50)"/>
+                    </g>
+                    <g stroke="rgba(139,90,159,0.4)" stroke-width="0.4" fill="none">
+                        <circle cx="50" cy="50" r="16"/>
+                        <path d="M34,50 L66,50 M50,34 L50,66 M40,40 L60,60 M60,40 L40,60"/>
+                    </g>
+                    <circle cx="50" cy="50" r="10" fill="rgba(212,196,232,0.3)"/>
+                    <circle cx="50" cy="50" r="5" fill="rgba(160,102,187,0.2)"/>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="floating-passiflora floating-passiflora-3">
+            <svg width="70" height="70" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g opacity="0.2">
+                    <g fill="rgba(255,255,255,0.6)" stroke="rgba(139,90,159,0.4)" stroke-width="0.6">
+                        <ellipse cx="50" cy="30" rx="2.5" ry="10" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="30" rx="2.5" ry="10" transform="rotate(60 50 50)"/>
+                        <ellipse cx="50" cy="30" rx="2.5" ry="10" transform="rotate(120 50 50)"/>
+                        <ellipse cx="50" cy="30" rx="2.5" ry="10" transform="rotate(180 50 50)"/>
+                        <ellipse cx="50" cy="30" rx="2.5" ry="10" transform="rotate(240 50 50)"/>
+                        <ellipse cx="50" cy="30" rx="2.5" ry="10" transform="rotate(300 50 50)"/>
+                    </g>
+                    <circle cx="50" cy="50" r="12" stroke="rgba(139,90,159,0.3)" stroke-width="0.3" fill="none"/>
+                    <circle cx="50" cy="50" r="6" fill="rgba(212,196,232,0.2)"/>
+                </g>
+            </svg>
+        </div>
+        
+        <h2 class="section-title">Nuestros Productos</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <h3 class="product-title">Tarro Grande</h3>
+                <p class="product-description">Gomitas pequeñas en forma de osito</p>
+                <div class="product-features">
+                    <p><strong>60 gomitas</strong></p>
+                    <p>Tratamiento completo</p>
+                    <p>Mayor duración</p>
+                </div>
+                <div class="product-price">₡4,000</div>
+                <p>Ideal para tratamientos prolongados y uso familiar</p>
+                <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Tarro%20Grande%20de%2060%20gomitas%20por%20₡4,000" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+            </div>
+            
+            <div class="product-card">
+                <h3 class="product-title">Tarro Pequeño</h3>
+                <p class="product-description">Gomitas pequeñas en forma de osito</p>
+                <div class="product-features">
+                    <p><strong>30 gomitas</strong></p>
+                    <p>Perfecto para probar</p>
+                    <p>Formato económico</p>
+                </div>
+                <div class="product-price">₡2,500</div>
+                <p>Perfecto para comenzar tu camino hacia el bienestar natural</p>
+                <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Tarro%20Pequeño%20de%2030%20gomitas%20por%20₡2,500" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section contact-section">
+        <h2 class="section-title">Contacto</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <a href="mailto:djdnaturals@gmail.com">djdnaturals@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/50670473044" target="_blank">+506 7047-3044</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20DJD%20Naturals" class="floating-whatsapp" target="_blank" title="Contactar por WhatsApp"></a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 DJD Naturals. Todos los derechos reservados.</p>
+        <p>Soluciones naturales para tu bienestar</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu after clicking
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(232, 225, 245, 0.95) 0%, rgba(212, 196, 232, 0.95) 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+        
+        // Add parallax effect to floating passifloras
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax1 = document.querySelector('.floating-passiflora-1');
+            const parallax2 = document.querySelector('.floating-passiflora-2');
+            const parallax3 = document.querySelector('.floating-passiflora-3');
+            
+            if (parallax1) {
+                parallax1.style.transform = `translateY(${scrolled * 0.2}px)`;
+            }
+            if (parallax2) {
+                parallax2.style.transform = `translateY(${scrolled * -0.15}px)`;
+            }
+            if (parallax3) {
+                parallax3.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
