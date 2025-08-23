@@ -310,7 +310,7 @@
             z-index: 2;
         }
         
-        /* Products Section - Mobile Optimized Carousel */
+        /* Products Section - Responsive Carousel */
         .products-section {
             background: linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%);
             position: relative;
@@ -321,6 +321,7 @@
             overflow: hidden;
             margin-top: 2rem;
             z-index: 2;
+            width: 100%;
         }
         
         .carousel-wrapper {
@@ -331,16 +332,19 @@
         
         .product-card {
             background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
+            border-radius: 15px;
+            padding: 1.2rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(90,75,122,0.15);
+            box-shadow: 0 8px 25px rgba(90,75,122,0.15);
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
             border: 2px solid #E8E1F5;
-            min-width: 280px;
             flex-shrink: 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         
         .product-card::before {
@@ -360,58 +364,58 @@
         }
         
         .product-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #5A4B7A;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
         
         .product-description {
             color: #666;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.85rem;
         }
         
         .flavor-info {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
-            margin: 0.5rem 0;
-            min-height: 1.2em;
+            margin: 0.4rem 0;
+            min-height: 1em;
             font-weight: 500;
         }
         
         .product-price {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: #8B5A9F;
-            margin: 1rem 0;
+            margin: 0.8rem 0;
         }
         
         .product-features {
             background: #E8E1F5;
-            padding: 1rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-            font-size: 0.9rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+            font-size: 0.8rem;
+            flex-grow: 1;
         }
         
         .product-features p {
-            margin: 0.3rem 0;
+            margin: 0.2rem 0;
         }
         
         .product-whatsapp {
             background: linear-gradient(45deg, #25D366, #128C7E);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1rem;
             border: none;
-            border-radius: 25px;
-            font-size: 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: auto;
             width: 100%;
-            max-width: 250px;
         }
         
         .product-whatsapp:hover {
@@ -582,14 +586,15 @@
             50% { transform: translate(40px, -20px) rotate(180deg); }
         }
         
-        /* SVG Passiflora */
-        .passiflora-svg {
-            width: 100%;
-            height: 100%;
-        }
-        
         /* Mobile Portrait (320px - 767px) */
         @media (max-width: 767px) {
+            .product-card {
+                width: calc(100vw - 4rem);
+                max-width: 320px;
+                min-height: 350px;
+                margin: 0 auto;
+            }
+            
             .nav-container {
                 padding: 0 1rem;
             }
@@ -671,23 +676,18 @@
                 height: 60px;
             }
             
-            .product-card {
-                min-width: 260px;
-                padding: 1.2rem;
-            }
-            
             .product-title {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .product-price {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
             
             .carousel-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
             
             .floating-whatsapp {
@@ -712,6 +712,11 @@
         
         /* Mobile Landscape (768px - 1024px) */
         @media (min-width: 768px) and (max-width: 1024px) {
+            .product-card {
+                width: calc(50% - 0.5rem);
+                min-height: 400px;
+            }
+            
             .nav-container {
                 padding: 0 2rem;
             }
@@ -753,56 +758,20 @@
                 max-width: 80%;
             }
             
-            .product-card {
-                min-width: 320px;
-            }
-            
             .contact-info {
                 grid-template-columns: repeat(2, 1fr);
                 max-width: 800px;
             }
         }
         
-        /* Landscape orientation specific adjustments */
-        @media (orientation: landscape) and (max-height: 500px) {
-            .hero {
-                min-height: 90vh;
-                padding: 4rem 1rem 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.6rem;
-                margin-bottom: 0.8rem;
-            }
-            
-            .hero p {
-                font-size: 0.85rem;
-                margin-bottom: 1.2rem;
-            }
-            
-            .button-group {
-                flex-direction: row;
-                gap: 0.8rem;
-            }
-            
-            .cta-button, .whatsapp-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-                min-width: 180px;
-            }
-            
-            .passiflora {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .section {
-                padding: 2rem 1rem;
-            }
-        }
-        
         /* Large tablets and small desktops */
         @media (min-width: 1025px) {
+            .product-card {
+                width: calc(25% - 0.75rem);
+                min-height: 450px;
+                padding: 2rem;
+            }
+            
             .nav-container {
                 padding: 0 2rem;
             }
@@ -841,11 +810,6 @@
             .about-content {
                 font-size: 1.1rem;
                 max-width: 800px;
-            }
-            
-            .product-card {
-                min-width: 350px;
-                padding: 2rem;
             }
             
             .passiflora {
@@ -1271,171 +1235,226 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Variables globales para el carousel
+        let currentSlide = 0;
+        const totalSlides = 4;
+        let autoplayInterval;
+        let isTransitioning = false;
+        
+        // Elementos del DOM
+        const carouselWrapper = document.getElementById('carouselWrapper');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.indicator');
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
         
+        // Función para determinar cuántas tarjetas mostrar según el dispositivo
+        function getCardsToShow() {
+            const width = window.innerWidth;
+            if (width <= 767) return 1;        // Móvil: 1 tarjeta
+            if (width <= 1024) return 2;      // Tablet: 2 tarjetas
+            return 4;                         // Desktop: 4 tarjetas (todas)
+        }
+        
+        // Función para actualizar el carousel
+        function updateCarousel() {
+            if (isTransitioning) return;
+            
+            const cardsToShow = getCardsToShow();
+            const cardWidth = 100 / cardsToShow;
+            const maxSlide = totalSlides - cardsToShow;
+            
+            // Asegurar que currentSlide esté dentro del rango válido
+            currentSlide = Math.max(0, Math.min(currentSlide, maxSlide));
+            
+            // Calcular la posición de transformación
+            const translateX = currentSlide * cardWidth;
+            
+            // Aplicar la transformación
+            carouselWrapper.style.transform = `translateX(-${translateX}%)`;
+            
+            // Actualizar indicadores
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Actualizar estado de los botones
+            prevBtn.disabled = currentSlide <= 0;
+            nextBtn.disabled = currentSlide >= maxSlide;
+            
+            // Gestionar la visibilidad de los controles
+            const showControls = cardsToShow < totalSlides;
+            prevBtn.style.display = showControls ? 'flex' : 'none';
+            nextBtn.style.display = showControls ? 'flex' : 'none';
+            
+            // Actualizar indicadores visibles
+            indicators.forEach((indicator, index) => {
+                indicator.style.display = index <= maxSlide ? 'block' : 'none';
+            });
+        }
+        
+        // Función para ir al slide anterior
+        function goToPrevSlide() {
+            if (isTransitioning || currentSlide <= 0) return;
+            
+            isTransitioning = true;
+            currentSlide--;
+            updateCarousel();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
+            
+            resetAutoplay();
+        }
+        
+        // Función para ir al siguiente slide
+        function goToNextSlide() {
+            const cardsToShow = getCardsToShow();
+            const maxSlide = totalSlides - cardsToShow;
+            
+            if (isTransitioning || currentSlide >= maxSlide) return;
+            
+            isTransitioning = true;
+            currentSlide++;
+            updateCarousel();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
+            
+            resetAutoplay();
+        }
+        
+        // Función para ir a un slide específico
+        function goToSlide(slideIndex) {
+            const cardsToShow = getCardsToShow();
+            const maxSlide = totalSlides - cardsToShow;
+            
+            if (isTransitioning || slideIndex < 0 || slideIndex > maxSlide) return;
+            
+            isTransitioning = true;
+            currentSlide = slideIndex;
+            updateCarousel();
+            
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
+            
+            resetAutoplay();
+        }
+        
+        // Función para iniciar el autoplay
+        function startAutoplay() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return; // No iniciar autoplay si el usuario prefiere movimiento reducido
+            }
+            
+            autoplayInterval = setInterval(() => {
+                const cardsToShow = getCardsToShow();
+                const maxSlide = totalSlides - cardsToShow;
+                
+                if (currentSlide >= maxSlide) {
+                    currentSlide = 0;
+                } else {
+                    currentSlide++;
+                }
+                updateCarousel();
+            }, 4000);
+        }
+        
+        // Función para detener el autoplay
+        function stopAutoplay() {
+            if (autoplayInterval) {
+                clearInterval(autoplayInterval);
+                autoplayInterval = null;
+            }
+        }
+        
+        // Función para reiniciar el autoplay
+        function resetAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+        }
+        
+        // Event listeners para los botones de navegación
+        prevBtn.addEventListener('click', goToPrevSlide);
+        nextBtn.addEventListener('click', goToNextSlide);
+        
+        // Event listeners para los indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => goToSlide(index));
+        });
+        
+        // Soporte para gestos táctiles
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        
+        carouselWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            stopAutoplay();
+        }, { passive: true });
+        
+        carouselWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            touchEndY = e.changedTouches[0].clientY;
+            
+            const deltaX = touchStartX - touchEndX;
+            const deltaY = touchStartY - touchEndY;
+            
+            // Verificar si es un swipe horizontal (no vertical)
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                if (deltaX > 0) {
+                    // Swipe izquierda - siguiente
+                    goToNextSlide();
+                } else {
+                    // Swipe derecha - anterior  
+                    goToPrevSlide();
+                }
+            } else {
+                // Si no es un swipe válido, reiniciar autoplay
+                startAutoplay();
+            }
+        }, { passive: true });
+        
+        // Pausar/reanudar autoplay con hover y focus
+        const carouselContainer = document.querySelector('.carousel-container');
+        
+        carouselContainer.addEventListener('mouseenter', stopAutoplay);
+        carouselContainer.addEventListener('mouseleave', startAutoplay);
+        carouselContainer.addEventListener('focusin', stopAutoplay);
+        carouselContainer.addEventListener('focusout', startAutoplay);
+        
+        // Manejar cambios de tamaño de ventana
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Ajustar currentSlide si es necesario después del resize
+                const cardsToShow = getCardsToShow();
+                const maxSlide = totalSlides - cardsToShow;
+                currentSlide = Math.min(currentSlide, maxSlide);
+                updateCarousel();
+            }, 150);
+        });
+        
+        // Mobile menu toggle
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
         
-        // Close mobile menu when clicking outside
+        // Cerrar menú móvil cuando se hace clic fuera
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 navMenu.classList.remove('active');
             }
         });
         
-        // Carousel functionality
-        const carouselWrapper = document.getElementById('carouselWrapper');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const indicators = document.querySelectorAll('.indicator');
-        let currentSlide = 0;
-        const totalSlides = 4;
-        let autoplayInterval;
-        
-        function getCardWidth() {
-            const card = document.querySelector('.product-card');
-            const styles = window.getComputedStyle(card);
-            const width = parseFloat(styles.width);
-            const marginRight = parseFloat(styles.marginRight) || 0;
-            const gap = 16; // 1rem gap from CSS
-            return width + gap;
-        }
-        
-        function updateCarousel() {
-            const cardWidth = getCardWidth();
-            const translateX = -currentSlide * cardWidth;
-            carouselWrapper.style.transform = `translateX(${translateX}px)`;
-            
-            // Update indicators
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentSlide);
-            });
-            
-            // Update button states
-            prevBtn.disabled = currentSlide === 0;
-            nextBtn.disabled = currentSlide === totalSlides - 1;
-        }
-        
-        function startAutoplay() {
-            autoplayInterval = setInterval(() => {
-                if (currentSlide < totalSlides - 1) {
-                    currentSlide++;
-                } else {
-                    currentSlide = 0;
-                }
-                updateCarousel();
-            }, 5000);
-        }
-        
-        function stopAutoplay() {
-            clearInterval(autoplayInterval);
-        }
-        
-        prevBtn.addEventListener('click', () => {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateCarousel();
-                stopAutoplay();
-                startAutoplay();
-            }
-        });
-        
-        nextBtn.addEventListener('click', () => {
-            if (currentSlide < totalSlides - 1) {
-                currentSlide++;
-                updateCarousel();
-                stopAutoplay();
-                startAutoplay();
-            }
-        });
-        
-        // Indicator clicks
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                currentSlide = index;
-                updateCarousel();
-                stopAutoplay();
-                startAutoplay();
-            });
-        });
-        
-        // Touch/swipe support for carousel
-        let startX = 0;
-        let startY = 0;
-        let isScrolling = false;
-        
-        carouselWrapper.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-            isScrolling = false;
-            stopAutoplay();
-        });
-        
-        carouselWrapper.addEventListener('touchmove', (e) => {
-            if (!startX || !startY) return;
-            
-            const diffX = startX - e.touches[0].clientX;
-            const diffY = startY - e.touches[0].clientY;
-            
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                e.preventDefault(); // Prevent vertical scroll
-                isScrolling = true;
-            }
-        });
-        
-        carouselWrapper.addEventListener('touchend', (e) => {
-            if (!isScrolling) {
-                startAutoplay();
-                return;
-            }
-            
-            const diffX = startX - e.changedTouches[0].clientX;
-            
-            if (Math.abs(diffX) > 50) { // Minimum swipe distance
-                if (diffX > 0 && currentSlide < totalSlides - 1) {
-                    // Swipe left - next slide
-                    currentSlide++;
-                } else if (diffX < 0 && currentSlide > 0) {
-                    // Swipe right - previous slide
-                    currentSlide--;
-                }
-                updateCarousel();
-            }
-            
-            startX = 0;
-            startY = 0;
-            isScrolling = false;
-            startAutoplay();
-        });
-        
-        // Initialize carousel
-        updateCarousel();
-        
-        // Start autoplay only if user prefers motion
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            startAutoplay();
-        }
-        
-        // Pause autoplay on hover/focus
-        const carouselContainer = document.querySelector('.carousel-container');
-        carouselContainer.addEventListener('mouseenter', stopAutoplay);
-        carouselContainer.addEventListener('mouseleave', startAutoplay);
-        carouselContainer.addEventListener('focusin', stopAutoplay);
-        carouselContainer.addEventListener('focusout', startAutoplay);
-        
-        // Handle window resize
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                updateCarousel();
-            }, 100);
-        });
-        
-        // Smooth scrolling for navigation links
+        // Navegación suave para enlaces de ancla
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1449,39 +1468,4 @@
                         behavior: 'smooth'
                     });
                 }
-                // Close mobile menu after clicking
-                navMenu.classList.remove('active');
-            });
-        });
-        
-        // Add scroll effect to header
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > 100) {
-                header.style.background = 'linear-gradient(135deg, rgba(232, 225, 245, 0.95) 0%, rgba(212, 196, 232, 0.95) 100%)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%)';
-                header.style.backdropFilter = 'none';
-            }
-            
-            // Hide/show header on scroll (optional mobile enhancement)
-            if (window.innerWidth <= 768) {
-                if (scrollTop > lastScrollTop && scrollTop > 200) {
-                    // Scrolling down
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    // Scrolling up
-                    header.style.transform = 'translateY(0)';
-                }
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-        
-        // Add parallax effect to floating passifloras (only if motion is not reduced)
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            window.addEventListener('scroll', () =>
+                // Cerrar menú mó
