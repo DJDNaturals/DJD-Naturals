@@ -97,7 +97,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(90,75,122,0.1)"/></svg>') repeat;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(90,75,122,0.1)"/></svg>') repeat;
             animation: float 20s infinite linear;
         }
         
@@ -164,11 +164,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
-        .whatsapp-button::before {
-            content: '📱 ';
-            margin-right: 0.5rem;
-        }
-        
         /* Floating WhatsApp Button */
         .floating-whatsapp {
             position: fixed;
@@ -186,16 +181,12 @@
             transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
             animation: pulse 2s infinite;
+            font-size: 1.5rem;
         }
         
         .floating-whatsapp:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-        }
-        
-        .floating-whatsapp::before {
-            content: '💬';
-            font-size: 1.5rem;
         }
         
         @keyframes pulse {
@@ -421,11 +412,6 @@
         .product-whatsapp:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-        }
-        
-        .product-whatsapp::before {
-            content: '💬 ';
-            margin-right: 0.3rem;
         }
         
         /* Carousel Navigation */
@@ -697,10 +683,6 @@
                 height: 55px;
             }
             
-            .floating-whatsapp::before {
-                font-size: 1.3rem;
-            }
-            
             .contact-info {
                 gap: 1rem;
             }
@@ -906,46 +888,6 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <!-- Animated Passiflora Flowers -->
-        <div class="passiflora passiflora-1">
-            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g>
-                    <!-- Outer petals -->
-                    <g fill="rgba(255,255,255,0.8)" stroke="rgba(139,90,159,0.6)" stroke-width="0.5">
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(36 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(108 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(180 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(252 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(324 50 50)"/>
-                    </g>
-                    
-                    <!-- Corona (filaments) -->
-                    <g stroke="rgba(139,90,159,0.7)" stroke-width="0.3" fill="none">
-                        <circle cx="50" cy="50" r="18"/>
-                        <path d="M32,50 L68,50 M50,32 L50,68 M37,37 L63,63 M63,37 L37,63"/>
-                        <path d="M35,50 L65,50 M50,35 L50,65 M39,39 L61,61 M61,39 L39,61"/>
-                    </g>
-                    
-                    <!-- Center structure -->
-                    <circle cx="50" cy="50" r="12" fill="rgba(212,196,232,0.6)" stroke="rgba(139,90,159,0.8)" stroke-width="0.5"/>
-                    <circle cx="50" cy="50" r="6" fill="rgba(160,102,187,0.4)"/>
-                    
-                    <!-- Stamens -->
-                    <g fill="rgba(139,90,159,0.9)">
-                        <circle cx="45" cy="45" r="1.5"/>
-                        <circle cx="55" cy="45" r="1.5"/>
-                        <circle cx="55" cy="55" r="1.5"/>
-                        <circle cx="45" cy="55" r="1.5"/>
-                        <circle cx="50" cy="50" r="2"/>
-                    </g>
-                </g>
-            </svg>
-        </div>
-        
         <div class="passiflora passiflora-2">
             <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g>
@@ -1039,7 +981,7 @@
             <p>Descubre una alternativa natural, accesible y efectiva para combatir la ansiedad, el estrés y el insomnio. Mejora tu calidad de vida con DJD Naturals.</p>
             <div class="button-group">
                 <a href="#productos" class="cta-button">Conoce Nuestros Productos</a>
-                <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20DJD%20Naturals" class="whatsapp-button" target="_blank">Contactar por WhatsApp</a>
+                <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20DJD%20Naturals" class="whatsapp-button" target="_blank">📱 Contactar por WhatsApp</a>
             </div>
         </div>
     </section>
@@ -1139,7 +1081,7 @@
                     </div>
                     <div class="product-price">₡2,600</div>
                     <p>Perfecto para comenzar tu camino hacia el bienestar natural</p>
-                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Pequeño%20de%2030%20gomitas%20sabor%20fresa%20por%20₡2,600" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Pequeño%20de%2030%20gomitas%20sabor%20fresa%20por%20₡2,600" class="product-whatsapp" target="_blank">💬 Pedir por WhatsApp</a>
                 </div>
                 
                 <!-- Envase Pequeño - Frambuesa -->
@@ -1156,7 +1098,7 @@
                     </div>
                     <div class="product-price">₡2,600</div>
                     <p>Perfecto para comenzar tu camino hacia el bienestar natural</p>
-                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Pequeño%20de%2030%20gomitas%20sabor%20frambuesa%20por%20₡2,600" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Pequeño%20de%2030%20gomitas%20sabor%20frambuesa%20por%20₡2,600" class="product-whatsapp" target="_blank">💬 Pedir por WhatsApp</a>
                 </div>
                 
                 <!-- Envase Grande - Fresa -->
@@ -1173,7 +1115,7 @@
                     </div>
                     <div class="product-price">₡4,000</div>
                     <p>Ideal para tratamientos prolongados y uso familiar</p>
-                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Grande%20de%2060%20gomitas%20sabor%20fresa%20por%20₡4,000" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Grande%20de%2060%20gomitas%20sabor%20fresa%20por%20₡4,000" class="product-whatsapp" target="_blank">💬 Pedir por WhatsApp</a>
                 </div>
                 
                 <!-- Envase Grande - Frambuesa -->
@@ -1190,7 +1132,7 @@
                     </div>
                     <div class="product-price">₡4,000</div>
                     <p>Ideal para tratamientos prolongados y uso familiar</p>
-                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Grande%20de%2060%20gomitas%20sabor%20frambuesa%20por%20₡4,000" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Grande%20de%2060%20gomitas%20sabor%20frambuesa%20por%20₡4,000" class="product-whatsapp" target="_blank">💬 Pedir por WhatsApp</a>
                 </div>
             </div>
             
@@ -1226,7 +1168,7 @@
     </section>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20DJD%20Naturals" class="floating-whatsapp" target="_blank" aria-label="Contactar por WhatsApp"></a>
+    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20DJD%20Naturals" class="floating-whatsapp" target="_blank" aria-label="Contactar por WhatsApp">💬</a>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1468,4 +1410,100 @@
                         behavior: 'smooth'
                     });
                 }
-                // Cerrar menú mó
+                // Cerrar menú móvil después de hacer clic
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Efecto de scroll para el header
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(232, 225, 245, 0.95) 0%, rgba(212, 196, 232, 0.95) 100%)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%)';
+                header.style.backdropFilter = 'none';
+            }
+            
+            // Ocultar/mostrar header en móvil al hacer scroll
+            if (window.innerWidth <= 768) {
+                if (scrollTop > lastScrollTop && scrollTop > 200) {
+                    // Scrolling hacia abajo
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrolling hacia arriba
+                    header.style.transform = 'translateY(0)';
+                }
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Inicializar el carousel
+        function initCarousel() {
+            updateCarousel();
+            startAutoplay();
+        }
+        
+        // Inicializar cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCarousel);
+        } else {
+            initCarousel();
+        }
+        
+        // Manejar la visibilidad de la página (pausar autoplay cuando no está visible)
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
+        });
+    </script>
+</body>
+</html>siflora passiflora-1">
+            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <!-- Outer petals -->
+                    <g fill="rgba(255,255,255,0.8)" stroke="rgba(139,90,159,0.6)" stroke-width="0.5">
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(36 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(108 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(180 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(252 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(324 50 50)"/>
+                    </g>
+                    
+                    <!-- Corona (filaments) -->
+                    <g stroke="rgba(139,90,159,0.7)" stroke-width="0.3" fill="none">
+                        <circle cx="50" cy="50" r="18"/>
+                        <path d="M32,50 L68,50 M50,32 L50,68 M37,37 L63,63 M63,37 L37,63"/>
+                        <path d="M35,50 L65,50 M50,35 L50,65 M39,39 L61,61 M61,39 L39,61"/>
+                    </g>
+                    
+                    <!-- Center structure -->
+                    <circle cx="50" cy="50" r="12" fill="rgba(212,196,232,0.6)" stroke="rgba(139,90,159,0.8)" stroke-width="0.5"/>
+                    <circle cx="50" cy="50" r="6" fill="rgba(160,102,187,0.4)"/>
+                    
+                    <!-- Stamens -->
+                    <g fill="rgba(139,90,159,0.9)">
+                        <circle cx="45" cy="45" r="1.5"/>
+                        <circle cx="55" cy="45" r="1.5"/>
+                        <circle cx="55" cy="55" r="1.5"/>
+                        <circle cx="45" cy="55" r="1.5"/>
+                        <circle cx="50" cy="50" r="2"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="pas
