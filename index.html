@@ -132,6 +132,8 @@
             flex-direction: column;
             gap: 1rem;
             align-items: center;
+            justify-content: center;
+            width: 100%;
         }
         
         .cta-button, .whatsapp-button {
@@ -144,9 +146,12 @@
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             font-weight: 500;
+            margin: 0 auto;
         }
         
         .cta-button {
@@ -720,11 +725,13 @@
                 flex-direction: row;
                 justify-content: center;
                 gap: 1rem;
+                flex-wrap: wrap;
             }
             
             .cta-button, .whatsapp-button {
                 width: auto;
                 min-width: 200px;
+                margin: 0;
             }
             
             .section {
@@ -773,11 +780,14 @@
             .button-group {
                 flex-direction: row;
                 gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
             }
             
             .cta-button, .whatsapp-button {
                 width: auto;
                 min-width: 220px;
+                margin: 0;
             }
             
             .section {
@@ -888,6 +898,46 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <!-- Animated Passiflora Flowers -->
+        <div class="passiflora passiflora-1">
+            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <!-- Outer petals -->
+                    <g fill="rgba(255,255,255,0.8)" stroke="rgba(139,90,159,0.6)" stroke-width="0.5">
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(36 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(108 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(180 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(252 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(324 50 50)"/>
+                    </g>
+                    
+                    <!-- Corona (filaments) -->
+                    <g stroke="rgba(139,90,159,0.7)" stroke-width="0.3" fill="none">
+                        <circle cx="50" cy="50" r="18"/>
+                        <path d="M32,50 L68,50 M50,32 L50,68 M37,37 L63,63 M63,37 L37,63"/>
+                        <path d="M35,50 L65,50 M50,35 L50,65 M39,39 L61,61 M61,39 L39,61"/>
+                    </g>
+                    
+                    <!-- Center structure -->
+                    <circle cx="50" cy="50" r="12" fill="rgba(212,196,232,0.6)" stroke="rgba(139,90,159,0.8)" stroke-width="0.5"/>
+                    <circle cx="50" cy="50" r="6" fill="rgba(160,102,187,0.4)"/>
+                    
+                    <!-- Stamens -->
+                    <g fill="rgba(139,90,159,0.9)">
+                        <circle cx="45" cy="45" r="1.5"/>
+                        <circle cx="55" cy="45" r="1.5"/>
+                        <circle cx="55" cy="55" r="1.5"/>
+                        <circle cx="45" cy="55" r="1.5"/>
+                        <circle cx="50" cy="50" r="2"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        
         <div class="passiflora passiflora-2">
             <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g>
@@ -1466,44 +1516,4 @@
         });
     </script>
 </body>
-</html>siflora passiflora-1">
-            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g>
-                    <!-- Outer petals -->
-                    <g fill="rgba(255,255,255,0.8)" stroke="rgba(139,90,159,0.6)" stroke-width="0.5">
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(36 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(108 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(180 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(252 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(324 50 50)"/>
-                    </g>
-                    
-                    <!-- Corona (filaments) -->
-                    <g stroke="rgba(139,90,159,0.7)" stroke-width="0.3" fill="none">
-                        <circle cx="50" cy="50" r="18"/>
-                        <path d="M32,50 L68,50 M50,32 L50,68 M37,37 L63,63 M63,37 L37,63"/>
-                        <path d="M35,50 L65,50 M50,35 L50,65 M39,39 L61,61 M61,39 L39,61"/>
-                    </g>
-                    
-                    <!-- Center structure -->
-                    <circle cx="50" cy="50" r="12" fill="rgba(212,196,232,0.6)" stroke="rgba(139,90,159,0.8)" stroke-width="0.5"/>
-                    <circle cx="50" cy="50" r="6" fill="rgba(160,102,187,0.4)"/>
-                    
-                    <!-- Stamens -->
-                    <g fill="rgba(139,90,159,0.9)">
-                        <circle cx="45" cy="45" r="1.5"/>
-                        <circle cx="55" cy="45" r="1.5"/>
-                        <circle cx="55" cy="55" r="1.5"/>
-                        <circle cx="45" cy="55" r="1.5"/>
-                        <circle cx="50" cy="50" r="2"/>
-                    </g>
-                </g>
-            </svg>
-        </div>
-        
-        <div class="pas
+</html>
