@@ -299,7 +299,7 @@
             z-index: 2;
         }
         
-        /* Products Section */
+        /* Products Section - Carousel */
         .products-section {
             background: linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%);
             position: relative;
@@ -315,13 +315,17 @@
             pointer-events: none;
         }
         
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .carousel-container {
             position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
             z-index: 2;
+        }
+        
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 2rem;
         }
         
         .product-card {
@@ -334,6 +338,54 @@
             position: relative;
             overflow: hidden;
             border: 2px solid #E8E1F5;
+            min-width: 350px;
+            flex-shrink: 0;
+        }
+
+        .flavor-selector {
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .flavor-options {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .flavor-option {
+            padding: 0.5rem 1rem;
+            border: 2px solid #E8E1F5;
+            border-radius: 20px;
+            background: white;
+            color: #5A4B7A;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            user-select: none;
+        }
+
+        .flavor-option.active {
+            background: linear-gradient(45deg, #8B5A9F, #A066BB);
+            color: white;
+            border-color: #8B5A9F;
+        }
+
+        .flavor-option:hover {
+            border-color: #8B5A9F;
+            background: #E8E1F5;
+        }
+
+        .flavor-option.active:hover {
+            background: linear-gradient(45deg, #8B5A9F, #A066BB);
+        }
+
+        .flavor-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0.5rem 0;
+            min-height: 1.2em;
         }
         
         .product-card::before {
@@ -399,6 +451,59 @@
         .product-whatsapp::before {
             content: '💬 ';
             margin-right: 0.3rem;
+        }
+        
+        /* Carousel Navigation */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .carousel-btn {
+            background: linear-gradient(45deg, #8B5A9F, #A066BB);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .carousel-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(139,90,159,0.3);
+        }
+        
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(139,90,159,0.3);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .indicator.active {
+            background: #8B5A9F;
         }
         
         /* Contact Section */
@@ -531,8 +636,8 @@
                 height: 80px;
             }
             
-            .products-grid {
-                grid-template-columns: 1fr;
+            .product-card {
+                min-width: 280px;
             }
             
             .contact-info {
@@ -793,31 +898,86 @@
         </div>
         
         <h2 class="section-title">Nuestros Productos</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <h3 class="product-title">Tarro Grande</h3>
-                <p class="product-description">Gomitas pequeñas en forma de osito</p>
-                <div class="product-features">
-                    <p><strong>60 gomitas</strong></p>
-                    <p>Tratamiento completo</p>
-                    <p>Mayor duración</p>
+        <div class="carousel-container">
+            <div class="carousel-wrapper" id="carouselWrapper">
+                <!-- Envase Pequeño - Fresa -->
+                <div class="product-card">
+                    <h3 class="product-title">Envase Pequeño</h3>
+                    <p class="product-description">Gomitas pequeñas en forma de osito</p>
+                    
+                    <div class="flavor-info">🍓 Sabor natural de fresa</div>
+                    
+                    <div class="product-features">
+                        <p><strong>30 gomitas</strong></p>
+                        <p>Perfecto para probar</p>
+                        <p>Formato económico</p>
+                    </div>
+                    <div class="product-price">₡2,600</div>
+                    <p>Perfecto para comenzar tu camino hacia el bienestar natural</p>
+                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Pequeño%20de%2030%20gomitas%20sabor%20fresa%20por%20₡2,600" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
                 </div>
-                <div class="product-price">₡4,000</div>
-                <p>Ideal para tratamientos prolongados y uso familiar</p>
-                <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Tarro%20Grande%20de%2060%20gomitas%20por%20₡4,000" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                
+                <!-- Envase Pequeño - Frambuesa -->
+                <div class="product-card">
+                    <h3 class="product-title">Envase Pequeño</h3>
+                    <p class="product-description">Gomitas pequeñas en forma de osito</p>
+                    
+                    <div class="flavor-info">🫐 Sabor natural de frambuesa</div>
+                    
+                    <div class="product-features">
+                        <p><strong>30 gomitas</strong></p>
+                        <p>Perfecto para probar</p>
+                        <p>Formato económico</p>
+                    </div>
+                    <div class="product-price">₡2,600</div>
+                    <p>Perfecto para comenzar tu camino hacia el bienestar natural</p>
+                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Pequeño%20de%2030%20gomitas%20sabor%20frambuesa%20por%20₡2,600" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                </div>
+                
+                <!-- Envase Grande - Fresa -->
+                <div class="product-card">
+                    <h3 class="product-title">Envase Grande</h3>
+                    <p class="product-description">Gomitas pequeñas en forma de osito</p>
+                    
+                    <div class="flavor-info">🍓 Sabor natural de fresa</div>
+                    
+                    <div class="product-features">
+                        <p><strong>60 gomitas</strong></p>
+                        <p>Tratamiento completo</p>
+                        <p>Mayor duración</p>
+                    </div>
+                    <div class="product-price">₡4,000</div>
+                    <p>Ideal para tratamientos prolongados y uso familiar</p>
+                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Grande%20de%2060%20gomitas%20sabor%20fresa%20por%20₡4,000" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                </div>
+                
+                <!-- Envase Grande - Frambuesa -->
+                <div class="product-card">
+                    <h3 class="product-title">Envase Grande</h3>
+                    <p class="product-description">Gomitas pequeñas en forma de osito</p>
+                    
+                    <div class="flavor-info">🫐 Sabor natural de frambuesa</div>
+                    
+                    <div class="product-features">
+                        <p><strong>60 gomitas</strong></p>
+                        <p>Tratamiento completo</p>
+                        <p>Mayor duración</p>
+                    </div>
+                    <div class="product-price">₡4,000</div>
+                    <p>Ideal para tratamientos prolongados y uso familiar</p>
+                    <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Envase%20Grande%20de%2060%20gomitas%20sabor%20frambuesa%20por%20₡4,000" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                </div>
             </div>
             
-            <div class="product-card">
-                <h3 class="product-title">Tarro Pequeño</h3>
-                <p class="product-description">Gomitas pequeñas en forma de osito</p>
-                <div class="product-features">
-                    <p><strong>30 gomitas</strong></p>
-                    <p>Perfecto para probar</p>
-                    <p>Formato económico</p>
+            <div class="carousel-nav">
+                <button class="carousel-btn" id="prevBtn">‹</button>
+                <div class="carousel-indicators" id="indicators">
+                    <div class="indicator active"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
+                    <div class="indicator"></div>
                 </div>
-                <div class="product-price">₡2,500</div>
-                <p>Perfecto para comenzar tu camino hacia el bienestar natural</p>
-                <a href="https://wa.me/50670473044?text=Hola,%20me%20interesa%20el%20Tarro%20Pequeño%20de%2030%20gomitas%20por%20₡2,500" class="product-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <button class="carousel-btn" id="nextBtn">›</button>
             </div>
         </div>
     </section>
@@ -857,6 +1017,53 @@
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
+        
+        // Carousel functionality
+        const carouselWrapper = document.getElementById('carouselWrapper');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentSlide = 0;
+        const totalSlides = 4; // Now we have 4 slides
+        
+        function updateCarousel() {
+            const translateX = -currentSlide * (350 + 32); // card width + gap
+            carouselWrapper.style.transform = `translateX(${translateX}px)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update button states
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateCarousel();
+            }
+        });
+        
+        // Indicator clicks
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+        
+        // Initialize carousel
+        updateCarousel();
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -903,6 +1110,16 @@
                 parallax3.style.transform = `translateY(${scrolled * 0.1}px)`;
             }
         });
+        
+        // Auto-advance carousel (optional)
+        setInterval(() => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0;
+            }
+            updateCarousel();
+        }, 5000);
     </script>
 </body>
 </html>
