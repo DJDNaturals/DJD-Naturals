@@ -97,13 +97,16 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(90,75,122,0.1)"/></svg>') repeat;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(90,75,122,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 80%, rgba(90,75,122,0.1) 1px, transparent 1px);
+            background-size: 50px 50px, 30px 30px;
             animation: float 20s infinite linear;
         }
         
         @keyframes float {
             0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(-100px) translateY(-100px); }
+            100% { transform: translateX(-50px) translateY(-50px); }
         }
         
         .hero-content {
@@ -187,6 +190,7 @@
             text-decoration: none;
             animation: pulse 2s infinite;
             font-size: 1.5rem;
+            color: white;
         }
         
         .floating-whatsapp:hover {
@@ -324,6 +328,7 @@
             display: flex;
             transition: transform 0.5s ease;
             gap: 1rem;
+            width: 400%; /* 4 products */
         }
         
         .product-card {
@@ -442,7 +447,6 @@
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             font-size: 1.2rem;
-            touch-action: manipulation;
         }
         
         .carousel-btn:hover {
@@ -468,7 +472,6 @@
             background: rgba(139,90,159,0.3);
             cursor: pointer;
             transition: background 0.3s;
-            touch-action: manipulation;
         }
         
         .indicator.active {
@@ -580,10 +583,14 @@
         /* Mobile Portrait (320px - 767px) */
         @media (max-width: 767px) {
             .product-card {
-                width: calc(100vw - 4rem);
+                width: calc(100% - 2rem);
                 max-width: 320px;
                 min-height: 350px;
-                margin: 0 auto;
+                margin: 0 1rem;
+            }
+            
+            .carousel-wrapper {
+                width: 100%;
             }
             
             .nav-container {
@@ -704,6 +711,10 @@
                 min-height: 400px;
             }
             
+            .carousel-wrapper {
+                width: 200%;
+            }
+            
             .nav-container {
                 padding: 0 2rem;
             }
@@ -761,6 +772,10 @@
                 padding: 2rem;
             }
             
+            .carousel-wrapper {
+                width: 100%;
+            }
+            
             .nav-container {
                 padding: 0 2rem;
             }
@@ -814,23 +829,9 @@
                 max-width: 800px;
                 gap: 2rem;
             }
-        }
-        
-        /* Touch improvements */
-        @media (pointer: coarse) {
-            .nav-menu a, .cta-button, .whatsapp-button, .product-whatsapp, .carousel-btn, .indicator {
-                min-height: 44px;
-                min-width: 44px;
-            }
             
-            .menu-toggle {
-                min-height: 44px;
-                min-width: 44px;
-            }
-            
-            .floating-whatsapp {
-                min-height: 60px;
-                min-width: 60px;
+            .carousel-nav {
+                display: none;
             }
         }
         
@@ -898,46 +899,6 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero">
         <!-- Animated Passiflora Flowers -->
-        <div class="passiflora passiflora-1">
-            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <g>
-                    <!-- Outer petals -->
-                    <g fill="rgba(255,255,255,0.8)" stroke="rgba(139,90,159,0.6)" stroke-width="0.5">
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(36 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(108 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(180 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(252 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
-                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(324 50 50)"/>
-                    </g>
-                    
-                    <!-- Corona (filaments) -->
-                    <g stroke="rgba(139,90,159,0.7)" stroke-width="0.3" fill="none">
-                        <circle cx="50" cy="50" r="18"/>
-                        <path d="M32,50 L68,50 M50,32 L50,68 M37,37 L63,63 M63,37 L37,63"/>
-                        <path d="M35,50 L65,50 M50,35 L50,65 M39,39 L61,61 M61,39 L39,61"/>
-                    </g>
-                    
-                    <!-- Center structure -->
-                    <circle cx="50" cy="50" r="12" fill="rgba(212,196,232,0.6)" stroke="rgba(139,90,159,0.8)" stroke-width="0.5"/>
-                    <circle cx="50" cy="50" r="6" fill="rgba(160,102,187,0.4)"/>
-                    
-                    <!-- Stamens -->
-                    <g fill="rgba(139,90,159,0.9)">
-                        <circle cx="45" cy="45" r="1.5"/>
-                        <circle cx="55" cy="45" r="1.5"/>
-                        <circle cx="55" cy="55" r="1.5"/>
-                        <circle cx="45" cy="55" r="1.5"/>
-                        <circle cx="50" cy="50" r="2"/>
-                    </g>
-                </g>
-            </svg>
-        </div>
-        
         <div class="passiflora passiflora-2">
             <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <g>
@@ -1264,11 +1225,15 @@
             const translateX = currentSlide * cardWidth;
             
             // Aplicar la transformación
-            carouselWrapper.style.transform = `translateX(-${translateX}%)`;
+            carouselWrapper.style.transform = 'translateX(-' + translateX + '%)';
             
             // Actualizar indicadores
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentSlide);
+            indicators.forEach(function(indicator, index) {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
             });
             
             // Actualizar estado de los botones
@@ -1281,7 +1246,7 @@
             nextBtn.style.display = showControls ? 'flex' : 'none';
             
             // Actualizar indicadores visibles
-            indicators.forEach((indicator, index) => {
+            indicators.forEach(function(indicator, index) {
                 indicator.style.display = index <= maxSlide ? 'block' : 'none';
             });
         }
@@ -1294,11 +1259,9 @@
             currentSlide--;
             updateCarousel();
             
-            setTimeout(() => {
+            setTimeout(function() {
                 isTransitioning = false;
             }, 500);
-            
-            resetAutoplay();
         }
         
         // Función para ir al siguiente slide
@@ -1312,11 +1275,9 @@
             currentSlide++;
             updateCarousel();
             
-            setTimeout(() => {
+            setTimeout(function() {
                 isTransitioning = false;
             }, 500);
-            
-            resetAutoplay();
         }
         
         // Función para ir a un slide específico
@@ -1330,53 +1291,42 @@
             currentSlide = slideIndex;
             updateCarousel();
             
-            setTimeout(() => {
+            setTimeout(function() {
                 isTransitioning = false;
             }, 500);
-            
-            resetAutoplay();
         }
         
         // Función para iniciar el autoplay
         function startAutoplay() {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                return; // No iniciar autoplay si el usuario prefiere movimiento reducido
-            }
-            
-            autoplayInterval = setInterval(() => {
-                const cardsToShow = getCardsToShow();
-                const maxSlide = totalSlides - cardsToShow;
-                
-                if (currentSlide >= maxSlide) {
-                    currentSlide = 0;
-                } else {
-                    currentSlide++;
-                }
-                updateCarousel();
-            }, 4000);
+            // Autoplay deshabilitado - función vacía
+            return;
         }
         
         // Función para detener el autoplay
         function stopAutoplay() {
-            if (autoplayInterval) {
-                clearInterval(autoplayInterval);
-                autoplayInterval = null;
-            }
+            // Autoplay deshabilitado - función vacía
+            return;
         }
         
         // Función para reiniciar el autoplay
         function resetAutoplay() {
-            stopAutoplay();
-            startAutoplay();
+            // Autoplay deshabilitado - función vacía
+            return;
         }
         
         // Event listeners para los botones de navegación
-        prevBtn.addEventListener('click', goToPrevSlide);
-        nextBtn.addEventListener('click', goToNextSlide);
+        if (prevBtn) {
+            prevBtn.addEventListener('click', goToPrevSlide);
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', goToNextSlide);
+        }
         
         // Event listeners para los indicadores
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => goToSlide(index));
+        indicators.forEach(function(indicator, index) {
+            indicator.addEventListener('click', function() {
+                goToSlide(index);
+            });
         });
         
         // Soporte para gestos táctiles
@@ -1385,47 +1335,43 @@
         let touchEndX = 0;
         let touchEndY = 0;
         
-        carouselWrapper.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-            stopAutoplay();
-        }, { passive: true });
-        
-        carouselWrapper.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].clientX;
-            touchEndY = e.changedTouches[0].clientY;
+        if (carouselWrapper) {
+            carouselWrapper.addEventListener('touchstart', function(e) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                // Sin autoplay - no detener nada
+            });
             
-            const deltaX = touchStartX - touchEndX;
-            const deltaY = touchStartY - touchEndY;
-            
-            // Verificar si es un swipe horizontal (no vertical)
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-                if (deltaX > 0) {
-                    // Swipe izquierda - siguiente
-                    goToNextSlide();
+            carouselWrapper.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].clientX;
+                touchEndY = e.changedTouches[0].clientY;
+                
+                const deltaX = touchStartX - touchEndX;
+                const deltaY = touchStartY - touchEndY;
+                
+                // Verificar si es un swipe horizontal (no vertical)
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                    if (deltaX > 0) {
+                        // Swipe izquierda - siguiente
+                        goToNextSlide();
+                    } else {
+                        // Swipe derecha - anterior  
+                        goToPrevSlide();
+                    }
                 } else {
-                    // Swipe derecha - anterior  
-                    goToPrevSlide();
+                    // Si no es un swipe válido, no hacer nada
                 }
-            } else {
-                // Si no es un swipe válido, reiniciar autoplay
-                startAutoplay();
-            }
-        }, { passive: true });
+            });
+        }
         
-        // Pausar/reanudar autoplay con hover y focus
+        // Eventos de hover - sin autoplay
         const carouselContainer = document.querySelector('.carousel-container');
-        
-        carouselContainer.addEventListener('mouseenter', stopAutoplay);
-        carouselContainer.addEventListener('mouseleave', startAutoplay);
-        carouselContainer.addEventListener('focusin', stopAutoplay);
-        carouselContainer.addEventListener('focusout', startAutoplay);
         
         // Manejar cambios de tamaño de ventana
         let resizeTimeout;
-        window.addEventListener('resize', () => {
+        window.addEventListener('resize', function() {
             clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
+            resizeTimeout = setTimeout(function() {
                 // Ajustar currentSlide si es necesario después del resize
                 const cardsToShow = getCardsToShow();
                 const maxSlide = totalSlides - cardsToShow;
@@ -1435,20 +1381,22 @@
         });
         
         // Mobile menu toggle
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        }
         
         // Cerrar menú móvil cuando se hace clic fuera
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        document.addEventListener('click', function(e) {
+            if (navMenu && menuToggle && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 navMenu.classList.remove('active');
             }
         });
         
         // Navegación suave para enlaces de ancla
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1461,14 +1409,18 @@
                     });
                 }
                 // Cerrar menú móvil después de hacer clic
-                navMenu.classList.remove('active');
+                if (navMenu) {
+                    navMenu.classList.remove('active');
+                }
             });
         });
         
         // Efecto de scroll para el header
         let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
+            if (!header) return;
+            
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollTop > 100) {
@@ -1476,44 +1428,44 @@
                 header.style.backdropFilter = 'blur(10px)';
             } else {
                 header.style.background = 'linear-gradient(135deg, #E8E1F5 0%, #D4C4E8 100%)';
-                header.style.backdropFilter = 'none';
-            }
-            
-            // Ocultar/mostrar header en móvil al hacer scroll
-            if (window.innerWidth <= 768) {
-                if (scrollTop > lastScrollTop && scrollTop > 200) {
-                    // Scrolling hacia abajo
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    // Scrolling hacia arriba
-                    header.style.transform = 'translateY(0)';
-                }
-            }
-            
-            lastScrollTop = scrollTop;
-        });
+                header.style.backdropFilter = 'none';flora-1">
+            <svg class="passiflora-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <!-- Outer petals -->
+                    <g fill="rgba(255,255,255,0.8)" stroke="rgba(139,90,159,0.6)" stroke-width="0.5">
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(36 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(72 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(108 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(144 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(180 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(216 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(252 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(288 50 50)"/>
+                        <ellipse cx="50" cy="20" rx="4" ry="15" transform="rotate(324 50 50)"/>
+                    </g>
+                    
+                    <!-- Corona (filaments) -->
+                    <g stroke="rgba(139,90,159,0.7)" stroke-width="0.3" fill="none">
+                        <circle cx="50" cy="50" r="18"/>
+                        <path d="M32,50 L68,50 M50,32 L50,68 M37,37 L63,63 M63,37 L37,63"/>
+                        <path d="M35,50 L65,50 M50,35 L50,65 M39,39 L61,61 M61,39 L39,61"/>
+                    </g>
+                    
+                    <!-- Center structure -->
+                    <circle cx="50" cy="50" r="12" fill="rgba(212,196,232,0.6)" stroke="rgba(139,90,159,0.8)" stroke-width="0.5"/>
+                    <circle cx="50" cy="50" r="6" fill="rgba(160,102,187,0.4)"/>
+                    
+                    <!-- Stamens -->
+                    <g fill="rgba(139,90,159,0.9)">
+                        <circle cx="45" cy="45" r="1.5"/>
+                        <circle cx="55" cy="45" r="1.5"/>
+                        <circle cx="55" cy="55" r="1.5"/>
+                        <circle cx="45" cy="55" r="1.5"/>
+                        <circle cx="50" cy="50" r="2"/>
+                    </g>
+                </g>
+            </svg>
+        </div>
         
-        // Inicializar el carousel
-        function initCarousel() {
-            updateCarousel();
-            startAutoplay();
-        }
-        
-        // Inicializar cuando el DOM esté listo
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initCarousel);
-        } else {
-            initCarousel();
-        }
-        
-        // Manejar la visibilidad de la página (pausar autoplay cuando no está visible)
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                stopAutoplay();
-            } else {
-                startAutoplay();
-            }
-        });
-    </script>
-</body>
-</html>
+        <div class="passiflora passi
