@@ -328,6 +328,7 @@
             display: flex;
             transition: transform 0.5s ease;
             gap: 1rem;
+            justify-content: center;
         }
         
         .product-card {
@@ -541,16 +542,7 @@
                 width: calc(100% - 2rem);
                 max-width: 320px;
                 min-height: 350px;
-                margin: 0 auto;
-            }
-            
-            .carousel-container {
-                display: flex;
-                justify-content: center;
-            }
-            
-            .carousel-wrapper {
-                justify-content: flex-start;
+                margin: 0 1rem;
             }
             
             .nav-container {
@@ -1052,21 +1044,15 @@
             let translateX = 0;
             
             if (cardsToShow === 1) {
-                // En móvil, centrar cada tarjeta individual
-                const cardWidth = carouselWrapper.children[0].offsetWidth;
-                const containerWidth = carouselWrapper.parentElement.offsetWidth;
-                const centerOffset = (containerWidth - cardWidth) / 2;
-                const slideOffset = currentSlide * cardWidth + currentSlide * 16; // 16px es el gap
-                translateX = slideOffset - centerOffset;
-                carouselWrapper.style.transform = `translateX(-${translateX}px)`;
+                translateX = currentSlide * 100;
             } else if (cardsToShow === 2) {
                 translateX = currentSlide * 50;
-                carouselWrapper.style.transform = `translateX(-${translateX}%)`;
             } else {
                 translateX = 0;
                 currentSlide = 0;
-                carouselWrapper.style.transform = `translateX(-${translateX}%)`;
             }
+            
+            carouselWrapper.style.transform = `translateX(-${translateX}%)`;
             
             // Actualizar indicadores
             const indicators = document.querySelectorAll('.indicator');
